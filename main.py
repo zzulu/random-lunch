@@ -1,6 +1,6 @@
 from math import ceil
 from random import shuffle
-from variables import members, previous_groups
+from variables import members, previous_results
 
 
 MAX_MEMBER_PER_GROUP = 4
@@ -11,7 +11,7 @@ groups = [[] for _ in range(GROUP_COUNT)]
 
 
 previous_pairs = {}
-for group in previous_groups:
+for group in previous_results[0]:
     for member in group:
         previous_pairs[member] = set(group)
         previous_pairs[member].remove(member)
