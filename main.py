@@ -1,6 +1,6 @@
 from math import ceil
 from random import shuffle
-from variables import members, previous_results
+from arguments import members, previous_results
 
 
 MAX_MEMBER_PER_GROUP = 4
