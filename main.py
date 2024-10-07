@@ -26,7 +26,7 @@ def can_be_grouped(group: list, member: str):
 
 shuffle(members)
 for user in members:
-    shuffle(groups)
+    groups.sort(key=lambda g: len(g))
     for group in groups:
         if can_be_grouped(group, user) and len(group) < MAX_MEMBER_PER_GROUP:
             group.append(user)
@@ -37,6 +37,10 @@ for user in members:
                 group.append(user)
                 break
 
+for i in range(len(groups) - 1):
+    while len(groups[i]) < len(groups[-1]) - 1:
+        member_to_move = groups[-1].pop()
+        groups[i].append(member_to_move)
 
 for group in groups:
     print(' '.join(group))
